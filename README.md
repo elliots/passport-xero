@@ -23,11 +23,11 @@ unobtrusively integrated into any application or framework that supports
         callbackURL: "http://127.0.0.1:3000/auth/xero/callback"
       },
       function(token, tokenSecret, profile, done) {
-        User.findOrCreate({ xeroId: profile.id }, function (err, user) {
-          return done(err, user);
-        });
+        // Use token to access the user's selected company.
       }
     ));
+    
+**NOTE: Xero does not provide anything in 'profile'. There is no identifying information given about the user.**
 
 #### Authenticate Requests
 
